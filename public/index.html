@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/> -->
+</head>
+<body>
+
+    <div class="wrapper">
+      <header>Upload a PDF file to analyse</header>
+      <form action="#" method="post" enctype="multipart/form-data">
+        <input class="file-input" type="file" name="file" hidden>
+        <!-- <input class="file-input" type="file" accept="application/pdf" name="file" hidden> -->
+
+        <i class="fas fa-cloud-upload-alt"></i>
+        <p>Browse File</p>
+      </form>
+      <section class="uploaded-area"></section>
+      
+      <div style="display: none; flex-direction: column;" id="spin_icon" class="align-items-center justify-content-center">
+        <div class="row">
+          <div class="spinner-border text-dark" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+        <div class="row">
+          <strong>Uploading File</strong>
+        </div>
+      </div>
+      <div style="display: none; flex-direction: column;" id="analyze_button" class="align-items-center justify-content-center"> 
+        <button type="button" class="btn btn-success">Analyze</button>
+      </div>
+      
+    </div>
+
+    <div style="display: none;" class="pdf"> 
+      <main >
+        <canvas class="pdf-viewer hidden">
+    
+        </canvas>
+      </main>
+      <footer>
+        <ul>
+          <li>
+            <button id="openPDF">
+              <span>Open</span> <i class="fas fa-folder-open"></i>
+            </button>
+            <input type="file" id="inputFile" hidden>
+          </li>
+          <li class="pagination">
+            <button id="previous"><i class="fas fa-arrow-alt-circle-left"></i></button>
+            <span id="current_page">0 of 0</span>
+            <button id="next"><i class="fas fa-arrow-alt-circle-right"></i></button>
+          </li>
+    
+          <li>
+            <span id="zoomValue">150%</span>
+            <input type="range" id="zoom" name="cowbell" min="100" max="300" value="150" step="50" disabled>
+          </li>
+        </ul>
+      </footer>
+    </div>
+
+  
+    <script src="./script.js"></script>
+  </body>
+</html>
