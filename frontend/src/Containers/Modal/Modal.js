@@ -12,6 +12,8 @@ export default function Modal({
   setCanShowPdf,
   canShowJS,
   setShowJS,
+  setShowProcess,
+  showProcess,
 }) {
   const toggleModal = () => {
     setModal(!modal);
@@ -19,10 +21,12 @@ export default function Modal({
   const showPDF = () => {
     setModal(!modal);
     setCanShowPdf(true);
+    setShowProcess(false);
   };
   const showJS = () => {
     setModal(!modal);
     setShowJS(true);
+    setShowProcess(false);
   };
 
   if (modal) {

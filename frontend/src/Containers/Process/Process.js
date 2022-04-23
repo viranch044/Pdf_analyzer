@@ -18,6 +18,8 @@ function Info({
   setJSData,
   canShowJS,
   setShowJS,
+  setShowProcess,
+  showProcess,
 }) {
   const [canAnalyse, setCanAnalyse] = useState(false);
   const [selectedFileName, setSelectedFileName] = useState("");
@@ -122,6 +124,8 @@ function Info({
         setCanShowPdf={setCanShowPdf}
         canShowJS={canShowJS}
         setShowJS={setShowJS}
+        setShowProcess={setShowProcess}
+        showProcess={showProcess}
       />
 
       {/* <PdfViewer /> */}

@@ -15,12 +15,12 @@ body {
 }
 
 .showjs {
-  margin: 0 auto;
+  margin: 2rem auto;
   background-color: white;
   width: 90vw;
   min-height: 20vh;
   padding: 2vh;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 
 .btn_custom {
@@ -37,7 +37,7 @@ body {
   color: white;
 }
 
-/* .pdfviewer {
-  background: red;
-  margin-top: -1rem !important;
-} */
+.pdfviewer {
+  /* background: red; */
+  margin-top: 2rem;
+}

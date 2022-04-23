@@ -16,10 +16,22 @@ function App() {
   const [canShowPdf, setCanShowPdf] = useState(false);
   const [canShowJS, setShowJS] = useState(false);
   const [jsData, setJSData] = useState("");
+  const [showProcess, setShowProcess] = useState(true);
   // pdf file error state
 
   // handle file onChange event
+  const showProcessFunc = () => {
+    setShowProcess(true);
+    setCanShowPdf(false);
+    setShowJS(false);
+  };
 
+  const showJsFunc = () => {
+    setShowJS(!canShowJS);
+  };
+  const showPdfFunc = () => {
+    setCanShowPdf(!canShowPdf);
+  };
   // const handleFile = (e) => {
   //   let selectedFile = e.target.files[0];
   //   // console.log(selectedFile.type);
@@ -43,21 +55,42 @@ function App() {
   return (
     <div className="container">
       <div className="">
-        <Process
-          susElementPresent={susElementPresent}
-          setSusElementPresent={setSusElementPresent}
-          jsPresent={jsPresent}
-          setJsPresent={setJsPresent}
-          structuralError={structuralError}
-          setStructuralErrorPresent={setStructuralErrorPresent}
-          setPdfFile={setPdfFile}
-          canShowPdf={canShowPdf}
-          setCanShowPdf={setCanShowPdf}
-          canShowJS={canShowJS}
-          setShowJS={setShowJS}
-          jsData={jsData}
-          setJSData={setJSData}
-        />
+        {!showProcess && (
+          <div className="">
+            <button className="btn_custom" onClick={showProcessFunc}>
+              <p>Upload PDF file</p>
+            </button>
+            {jsData && (
+              <button className="btn_custom" onClick={showJsFunc}>
+                {!canShowJS ? <p> Show JS</p> : <p>Hide JS</p>}
+              </button>
+            )}
+            {!susElementPresent && (
+              <button className="btn_custom" onClick={showPdfFunc}>
+                {!canShowPdf ? <p>Show PDF</p> : <p>Hide PDF</p>}
+              </button>
+            )}
+          </div>
+        )}
+        {showProcess && (
+          <Process
+            susElementPresent={susElementPresent}
+            setSusElementPresent={setSusElementPresent}
+            jsPresent={jsPresent}
+            setJsPresent={setJsPresent}
+            structuralError={structuralError}
+            setStructuralErrorPresent={setStructuralErrorPresent}
+            setPdfFile={setPdfFile}
+            canShowPdf={canShowPdf}
+            setCanShowPdf={setCanShowPdf}
+            canShowJS={canShowJS}
+            setShowJS={setShowJS}
+            jsData={jsData}
+            setJSData={setJSData}
+            setShowProcess={setShowProcess}
+            showProcess={showProcess}
+          />
+        )}
       </div>
 
       {/* View PDF */}
@@ -67,7 +100,7 @@ function App() {
         </div>
       )}
       <div className="pdfviewer">
-        {canShowPdf && <PdfViewer pdfFile={pdfFile} />}
+        {canShowPdf && <PdfViewer pdfFile={pdfFile}  />}
       </div>
     </div>
   );
