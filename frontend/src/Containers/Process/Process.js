@@ -107,7 +107,7 @@ function Info({
       </div>
       {canAnalyse && (
         <div className="analyse_btn_div">
-          <button className="btn_custom" onClick={handleAnalyse}>
+          <button className="btn_custom analyse_btn" onClick={handleAnalyse}>
             <p>Analyze</p>
           </button>
         </div>

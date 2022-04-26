@@ -44,49 +44,84 @@ export default function Modal({
         <div className="modal">
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
-            <h2>Hello Modal</h2>
-            {checks && (
-              <div className="checks">
-                {jsPresent && <div className="">Js element Present</div>}
-                <span>
-                  JS Present{" "}
-                  {jsPresent ? (
-                    <i className="green_check fa-solid fa-circle-check"></i>
-                  ) : (
-                    <i class="red_cross fa-solid fa-circle-xmark"></i>
-                  )}
-                </span>
-                <span>
-                  {" "}
-                  Sus element Present{" "}
-                  {susElementPresent ? (
-                    <i className="green_check fa-solid fa-circle-check"></i>
-                  ) : (
-                    <i class="red_cross fa-solid fa-circle-xmark"></i>
-                  )}
-                </span>
-                <span>
-                  {" "}
-                  Structural error Present{" "}
-                  {structuralError ? (
-                    <i className="green_check fa-solid fa-circle-check"></i>
-                  ) : (
-                    <i class="red_cross fa-solid fa-circle-xmark"></i>
-                  )}
-                </span>
+            <h2>
+              Analysis results obtained using{" "}
+              <a href="https://github.com/jesparza/peepdf">peepdf</a>{" "}
+            </h2>
+            {susElementPresent && (
+              <div className="modal_statement">
+                There are suspicious elements present in the pdf. They can be
+                very harmful for your machine if you open the pdf in the pdf
+                viewer.
               </div>
             )}
-            <button className="close-modal btn_custom" onClick={toggleModal}>
+
+            {!susElementPresent && jsPresent && (
+              <div className="modal_statement">
+                There is JavaScript present in the document. You can look at it
+                and analyze it on your own. It's advised that you do not open
+                the pdf as the javascript might be harmful for your machine.
+              </div>
+            )}
+            {checks && (
+              <div className="table_checks">
+                <table rules="all" className="check_table">
+                  <thead>
+                    <tr>
+                      <th>Properties to Check</th>
+                      <th>Present</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th className="table_left_text">Javascript</th>
+                      <th>
+                        {jsPresent ? (
+                          <i className="green_check fa-solid fa-circle-check"></i>
+                        ) : (
+                          <i className="red_cross fa-solid fa-circle-xmark"></i>
+                        )}
+                      </th>
+                    </tr>
+                    <tr>
+                      <th className="table_left_text">Sus element</th>
+                      <th>
+                        {susElementPresent ? (
+                          <i className="green_check fa-solid fa-circle-check"></i>
+                        ) : (
+                          <i className="red_cross fa-solid fa-circle-xmark"></i>
+                        )}
+                      </th>
+                    </tr>
+                    <tr>
+                      <th className="table_left_text">Structural error</th>
+                      <th>
+                        {structuralError ? (
+                          <i className="green_check fa-solid fa-circle-check"></i>
+                        ) : (
+                          <i className="red_cross fa-solid fa-circle-xmark"></i>
+                        )}
+                      </th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            )}
+
+            <button
+              className="close-modal btn_custom modal_btn"
+              onClick={toggleModal}
+            >
               <p>Close</p>
             </button>
             <div className="modal-below-btns">
               {jsPresent && (
-                <button className="btn_custom" onClick={showJS}>
+                <button className="btn_custom modal_btn" onClick={showJS}>
                   <p> Show JS</p>
                 </button>
               )}
               {!susElementPresent && (
-                <button className="btn_custom" onClick={showPDF}>
+                <button className="btn_custom modal_btn" onClick={showPDF}>
                   <p> Show PDF</p>
                 </button>
               )}

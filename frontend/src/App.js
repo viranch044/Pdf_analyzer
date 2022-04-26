@@ -56,22 +56,23 @@ function App() {
     <div className="container">
       <div className="">
         {!showProcess && (
-          <div className="">
-            <button className="btn_custom" onClick={showProcessFunc}>
+          <div className="final_btns">
+            <button className="btn_custom final_btn" onClick={showProcessFunc}>
               <p>Upload PDF file</p>
             </button>
             {jsData && (
-              <button className="btn_custom" onClick={showJsFunc}>
+              <button className="btn_custom final_btn" onClick={showJsFunc}>
                 {!canShowJS ? <p> Show JS</p> : <p>Hide JS</p>}
               </button>
             )}
             {!susElementPresent && (
-              <button className="btn_custom" onClick={showPdfFunc}>
+              <button className="btn_custom final_btn" onClick={showPdfFunc}>
                 {!canShowPdf ? <p>Show PDF</p> : <p>Hide PDF</p>}
               </button>
             )}
           </div>
         )}
+
         {showProcess && (
           <Process
             susElementPresent={susElementPresent}
@@ -100,7 +101,7 @@ function App() {
         </div>
       )}
       <div className="pdfviewer">
-        {canShowPdf && <PdfViewer pdfFile={pdfFile}  />}
+        {canShowPdf && <PdfViewer pdfFile={pdfFile} />}
       </div>
     </div>
   );

@@ -9,10 +9,15 @@ import "@react-pdf-viewer/core/lib/styles/index.css";
 import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 // Import styles of default layout plugin
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
-import abc from "./abc.pdf";
+import {zoomPlugin} from '@react-pdf-viewer/zoom'
+
 
 function PdfViewer({ pdfFile }) {
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
+  const zoomPluginInstance = zoomPlugin()
+  const {Zoom} = zoomPluginInstance;
+  <Zoom></Zoom>
+
   return (
     <div className="">
       {pdfFile && (

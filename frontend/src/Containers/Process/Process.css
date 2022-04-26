@@ -1,24 +1,27 @@
 .process_div {
   /* background-color: red; */
-  width: 40vw;
-  margin: 7vh auto;
+  width: 100vw;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100%;
+  height: 60vh;
   padding-bottom: 1.5rem;
   /* margin-bottom: 4rem; */
   background-color: white;
   text-align: center;
+  background-color: #fd5a5a;
+  color: white;
 }
 
 .analyse_btn_div {
   margin-top: 0.5rem;
 }
 .upload_line {
-  font-size: 1.5rem;
-  margin: 3rem 0 1.5rem 0;
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0rem 0 1.5rem 0;
 }
 
 .upload_btn_div {
@@ -30,9 +33,20 @@
 }
 
 .upload_btn_div button {
-  border: 3px dotted black !important;
-  padding: 1rem 0;
-  width: 12vw;
+  border: 3px dotted white !important;
+  padding: 1.5rem 0;
+  width: 16vw;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.analyse_btn {
+  margin-top: 2rem;
+  width: 16vw;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .selectedFileName {
@@ -55,15 +69,33 @@
 
 @media only screen and (max-width: 970px) {
   .process_div {
-    width: 80vw;
+    width: 100vw;
   }
 
   .upload_btn_div button {
-    width: 30vw;
+    width: 13rem;
   }
 }
 @media only screen and (max-width: 450px) {
   .upload_line {
+    font-size: 1.5rem;
+  }
+
+  .upload_btn_div button {
+    width: 9rem;
     font-size: 1rem;
+    padding: 1rem 0;
+  }
+
+  .process_div {
+    height: 50vh;
+  }
+
+  .analyse_btn {
+    margin-top: 0rem;
+    width: 9rem;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
   }
 }

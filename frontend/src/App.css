@@ -6,38 +6,91 @@
 }
 
 body {
-  background-color: rgb(225, 225, 225);
-  font-family: "Roboto", sans-serif;
+  font-family: Ubuntu, Arial, Helvetica, sans-serif;
+  color: white;
 }
+
 .container {
   display: flex;
   flex-direction: column;
+  width: 100vw;
 }
 
 .showjs {
-  margin: 2rem auto;
-  background-color: white;
+  margin: 0 auto;
   width: 90vw;
   min-height: 20vh;
   padding: 2vh;
+  color: black;
+  max-height: 80vh;
+  overflow-y: scroll;
+  border: 1px #fd5a5a solid;
+  margin-bottom: 2rem;
   /* margin-bottom: 2rem; */
 }
 
 .btn_custom {
-  background-color: white !important;
-  border-color: black;
+  background-color: transparent;
   padding: 0.5rem 2rem;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
 }
 
 .btn_custom:hover {
-  background-color: black !important;
+  background-color: white;
+  cursor: pointer;
 }
 
 .btn_custom:hover > p {
+  color: #fd5a5a;
+}
+
+.final_btns {
+  /* background-color: #fd5a5a; */
+  background-color: white;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.final_btn {
+  margin-left: 1rem;
+  width: 15rem;
+  height: 4rem;
+  color: #fd5a5a;
+  border-color: #fd5a5a;
+}
+
+.final_btn:hover {
+  background-color: #fd5a5a;
+}
+
+.final_btn:hover > p {
   color: white;
 }
 
-.pdfviewer {
-  /* background: red; */
-  margin-top: 2rem;
+.final_btn p {
+  font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 970px) {
+  .final_btn {
+    width: 9rem;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .final_btns {
+    justify-content: space-evenly;
+  }
+  .final_btn {
+    width: 7rem;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .final_btn p {
+    font-size: 0.9rem;
+  }
 }
