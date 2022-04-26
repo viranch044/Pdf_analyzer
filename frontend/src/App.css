@@ -18,7 +18,7 @@ body {
 
 .showjs {
   margin: 0 auto;
-  width: 90vw;
+  width: 80vw;
   min-height: 20vh;
   padding: 2vh;
   color: black;
@@ -92,5 +92,9 @@ body {
 
   .final_btn p {
     font-size: 0.9rem;
+  }
+
+  .showjs {
+    width: 90vw;
   }
 }
