@@ -3,8 +3,9 @@ import "./Process.css";
 // import PdfViewer from "./PdfViewer/PdfViewer";
 import axios from "axios";
 import Modal from "../Modal/Modal";
+import loader from './loader.svg'
 
-function Info({
+function Process({
   susElementPresent,
   setSusElementPresent,
   jsPresent,
@@ -20,6 +21,8 @@ function Info({
   setShowJS,
   setShowProcess,
   showProcess,
+  harmfulJSPresent,
+  setHarmfulJSPresent
 }) {
   const [canAnalyse, setCanAnalyse] = useState(false);
   const [selectedFileName, setSelectedFileName] = useState("");
@@ -68,6 +71,9 @@ function Info({
       if (res.data) {
         if (res.data.js_response_text.length > 0) {
           setJsPresent(true);
+          if(res.data.existing_js){
+            setHarmfulJSPresent(true)
+          } 
           setJSData(res.data.js_response_text);
         }
         if (res.data.sus_element === true) {
@@ -112,7 +118,7 @@ function Info({
           </button>
         </div>
       )}
-      {analyzeLoader && <div className="">Loading..</div>}
+      {analyzeLoader && <img src={loader} className=""/> }
       <Modal
         checks={checks}
         jsPresent={jsPresent}
@@ -126,6 +132,8 @@ function Info({
         setShowJS={setShowJS}
         setShowProcess={setShowProcess}
         showProcess={showProcess}
+        harmfulJSPresent={harmfulJSPresent}
+        setHarmfulJSPresent={setHarmfulJSPresent}
       />
 
       {/* <PdfViewer /> */}
@@ -133,4 +141,4 @@ function Info({
   );
 }
 
-export default Info;
+export default Process;

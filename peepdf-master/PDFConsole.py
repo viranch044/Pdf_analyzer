@@ -1145,11 +1145,11 @@ class PDFConsole(cmd.Cmd):
             output += newLine
         for version in range(len(extractedJsPerObject)):
             for extractedJs in extractedJsPerObject[version]:
-                comment_text = '*******Javascript code located in object %d (version %d)*******' % (extractedJs[0], version)
+                comment_text = '/* Javascript code located in object %d (version %d) */' % (extractedJs[0], version)
                 comment = colored(comment_text, 'yellow')
                 output += comment
                 output+= newLine
-                output+= '--------------------------------------------------------------'
+                output+= '/* -------------------------------------------------------------- */'
                 output += '%s%s%s' % (newLine*2, extractedJs[1], newLine*3)
         self.log_output('extract ' + argv, output)
 

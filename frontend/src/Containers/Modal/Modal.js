@@ -14,6 +14,7 @@ export default function Modal({
   setShowJS,
   setShowProcess,
   showProcess,
+  harmfulJSPresent
 }) {
   const toggleModal = () => {
     setModal(!modal);
@@ -61,6 +62,7 @@ export default function Modal({
                 There is JavaScript present in the document. You can look at it
                 and analyze it on your own. It's advised that you do not open
                 the pdf as the javascript might be harmful for your machine.
+                {harmfulJSPresent && <p>Javascript present matches the harmful javascript files present in our database.</p>}
               </div>
             )}
             {checks && (
@@ -84,7 +86,7 @@ export default function Modal({
                       </th>
                     </tr>
                     <tr>
-                      <th className="table_left_text">Sus element</th>
+                      <th className="table_left_text">Suspicious elements</th>
                       <th>
                         {susElementPresent ? (
                           <i className="green_check fa-solid fa-circle-check"></i>

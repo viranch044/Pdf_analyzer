@@ -17,6 +17,7 @@ function App() {
   const [canShowJS, setShowJS] = useState(false);
   const [jsData, setJSData] = useState("");
   const [showProcess, setShowProcess] = useState(true);
+  const [harmulJSPresent, setHarmfulJSPresent] = useState(false)
   // pdf file error state
 
   // handle file onChange event
@@ -24,6 +25,11 @@ function App() {
     setShowProcess(true);
     setCanShowPdf(false);
     setShowJS(false);
+    setJSData("");
+    setPdfFile(null);
+    setSusElementPresent(false);
+    setJsPresent(false);
+    setStructuralErrorPresent(false);
   };
 
   const showJsFunc = () => {
@@ -90,15 +96,17 @@ function App() {
             setJSData={setJSData}
             setShowProcess={setShowProcess}
             showProcess={showProcess}
+            harmulJSPresent={harmulJSPresent}
+            setHarmfulJSPresent={setHarmfulJSPresent}
           />
         )}
       </div>
 
       {/* View PDF */}
       {canShowJS && (
-        <div className="showjs">
-          <div id="">{jsData}</div>
-        </div>
+        <textarea className="showjs" id="">
+          {jsData}
+        </textarea>
       )}
       <div className="pdfviewer">
         {canShowPdf && <PdfViewer pdfFile={pdfFile} />}
